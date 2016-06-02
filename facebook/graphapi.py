@@ -117,7 +117,7 @@ class GraphAPI(object):
 
         content_type = response.headers.get('Content-Type')
         if 'text' in content_type:
-            data = json.loads(response.body)
+            data = json.loads(response.body.decode())
         elif 'image' in content_type:
             data = {
                 "data": response.body,
