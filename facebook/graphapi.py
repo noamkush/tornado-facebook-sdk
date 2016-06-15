@@ -116,7 +116,7 @@ class GraphAPI(object):
         response = yield gen.Task(client.fetch, request)
 
         content_type = response.headers.get('Content-Type')
-        if 'text' in content_type:
+        if 'json' in content_type:
             data = json.loads(response.body.decode())
         elif 'image' in content_type:
             data = {
